@@ -3,6 +3,10 @@ symfony-json-request-transformer
 
 A Symfony 2 event listener for decoding JSON encoded request content.
 
+## About
+
+Read the blog post about this repository at http://labs.qandidate.com/blog/2014/08/13/handling-angularjs-post-requests-in-symfony/
+
 ## Install
 
 Install qandidate/symfony-json-request-transformer [through composer](http://getcomposer.org).
