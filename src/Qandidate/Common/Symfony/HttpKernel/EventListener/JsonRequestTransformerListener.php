@@ -32,7 +32,7 @@ class JsonRequestTransformerListener
         }
 
         if (! $this->transformJsonBody($request)) {
-            $response = Response::create('Unable to parse request.', Response::HTTP_BAD_REQUEST);
+            $response = Response::create('Unable to parse request.', 400);
             $event->setResponse($response);
         }
     }
