@@ -20,6 +20,8 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
  */
 class JsonRequestTransformerListener
 {
+    private $jsonContentTypes = ['json', 'application/json'];
+
     /**
      * @param GetResponseEvent $event
      */
@@ -39,7 +41,7 @@ class JsonRequestTransformerListener
 
     private function isJsonRequest(Request $request)
     {
-        return 'json' === $request->getContentType();
+        return in_array($request->getContentType(), $this->jsonContentTypes);
     }
 
     private function transformJsonBody(Request $request)
