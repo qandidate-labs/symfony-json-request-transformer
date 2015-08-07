@@ -20,7 +20,7 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
  */
 class JsonRequestTransformerListener
 {
-    private $jsonContentTypes = ['json', 'application/json'];
+    private $jsonContentTypes = array('json', 'application/json');
 
     /**
      * @param GetResponseEvent $event
