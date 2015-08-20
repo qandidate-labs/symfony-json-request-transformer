@@ -13,12 +13,8 @@ Read the blog post about this repository at http://labs.qandidate.com/blog/2014/
 
 Install qandidate/symfony-json-request-transformer [through composer](http://getcomposer.org).
 
-```JSON
-{
-    "require": {
-        "qandidate/symfony-json-request-transformer": "*"
-    }
-}
+```bash
+composer require qandidate/symfony-json-request-transformer
 ```
 
 Register the event listener as a service:
