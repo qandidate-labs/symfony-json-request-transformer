@@ -13,7 +13,7 @@
     }
   ],
   "require": {
-    "symfony/http-kernel": "~2.3"
+    "symfony/http-kernel": "~2.3|~3.0"
   },
   "autoload": {
     "psr-0": {
