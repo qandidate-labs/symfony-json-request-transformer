@@ -39,6 +39,7 @@ class JsonRequestTransformerListenerTest extends PHPUnit_Framework_TestCase
             $data,
             $event->getRequest()->request->all()
         );
+        $this->assertNull($event->getResponse());
     }
 
     public function jsonContentTypes()
@@ -74,6 +75,7 @@ class JsonRequestTransformerListenerTest extends PHPUnit_Framework_TestCase
         $this->listener->onKernelRequest($event);
 
         $this->assertEquals($request, $event->getRequest());
+        $this->assertNull($event->getResponse());
     }
 
     /**
@@ -87,6 +89,7 @@ class JsonRequestTransformerListenerTest extends PHPUnit_Framework_TestCase
         $this->listener->onKernelRequest($event);
 
         $this->assertEquals($request, $event->getRequest());
+        $this->assertNull($event->getResponse());
     }
 
     /**
@@ -100,6 +103,7 @@ class JsonRequestTransformerListenerTest extends PHPUnit_Framework_TestCase
         $this->listener->onKernelRequest($event);
 
         $this->assertEquals($request, $event->getRequest());
+        $this->assertNull($event->getResponse());
     }
 
     public function notJsonContentTypes()
