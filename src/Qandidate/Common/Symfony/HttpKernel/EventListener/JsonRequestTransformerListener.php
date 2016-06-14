@@ -27,7 +27,9 @@ class JsonRequestTransformerListener
     {
         $request = $event->getRequest();
 
-        if (empty($request->getContent())) {
+        $content = $request->getContent();
+
+        if (empty($content)) {
             return;
         }
 
