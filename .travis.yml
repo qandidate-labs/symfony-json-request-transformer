@@ -16,7 +16,7 @@ before_script:
   - if [[ "$SYMFONY_VERSION" == "2.3.*" ]]; then composer update --prefer-lowest; fi
 
 script:
-  - phpunit
+  - vendor/bin/phpunit
 
 branches:
   only:
