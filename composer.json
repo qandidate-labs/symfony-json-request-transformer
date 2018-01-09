@@ -1,6 +1,6 @@
 {
   "name": "qandidate/symfony-json-request-transformer",
-  "description": "A Symfony 2 event listener for decoding JSON encoded request content",
+  "description": "A Symfony event listener for decoding JSON encoded request content",
   "license": "MIT",
   "authors": [
     {
@@ -13,7 +13,7 @@
     }
   ],
   "require": {
-    "symfony/http-kernel": "~2.3|~3.0"
+    "symfony/http-kernel": "~2.3|~3.0|~4.0"
   },
   "autoload": {
     "psr-0": {
