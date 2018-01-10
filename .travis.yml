@@ -1,19 +1,28 @@
 language: php
 
 php:
-  - 5.5
-  - 5.6
-  - 7
+  - 7.1
+  - 7.2
 
 env:
-  - SYMFONY_VERSION="2.3.*"
   - SYMFONY_VERSION="2.7.*"
   - SYMFONY_VERSION="2.8.*"
-  - SYMFONY_VERSION="3.0.*"
+  - SYMFONY_VERSION="3.3.*"
+  - SYMFONY_VERSION="3.4.*"
+  - SYMFONY_VERSION="4.0.*"
+
+matrix:
+  include:
+    - php: 7.1
+      env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
+    - php: 7.1
+      env: SYMFONY_VERSION=''
+    - php: 7.2
+      env: SYMFONY_VERSION=''
 
 before_script:
-  - composer require symfony/http-kernel:${SYMFONY_VERSION}
-  - if [[ "$SYMFONY_VERSION" == "2.3.*" ]]; then composer update --prefer-lowest; fi
+  - if [ "$SYMFONY_VERSION" != "" ]; then composer --no-update require symfony/http-kernel:${SYMFONY_VERSION}; fi;
+  - travis_retry composer update $COMPOSER_FLAGS
 
 script:
   - vendor/bin/phpunit
