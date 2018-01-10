@@ -9,9 +9,6 @@ A Symfony event listener for decoding JSON encoded request content.
 
 Read the blog post about this repository at http://labs.qandidate.com/blog/2014/08/13/handling-angularjs-post-requests-in-symfony/
 
-Currently this library supports both Symfony 2 and Symfony 3. Tests run against all LTS versions of Symfony 2 and against Symfony 3.
-As Symfony 3 requires PHP >5.5.9 and PHP 5.3 and 5.4 have been out of support for a while, we only test against 5.5+.
-
 ## Install
 
 Install qandidate/symfony-json-request-transformer [through composer](http://getcomposer.org).
