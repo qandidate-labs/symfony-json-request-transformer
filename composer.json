@@ -20,7 +20,12 @@
       "Qandidate\\Common\\Symfony\\HttpKernel\\EventListener": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-0": {
+      "Qandidate\\Common\\Symfony\\HttpKernel\\EventListener": "test/"
+    }
+  },
   "require-dev": {
-    "phpunit/phpunit": "^4.8"
+    "phpunit/phpunit": "^8.0"
   }
 }
