@@ -13,6 +13,7 @@ namespace Qandidate\Common\Symfony\HttpKernel\EventListener;
 
 use PHPUnit_Framework_TestCase;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 class JsonRequestTransformerListenerTest extends PHPUnit_Framework_TestCase
 {
@@ -125,7 +126,7 @@ class JsonRequestTransformerListenerTest extends PHPUnit_Framework_TestCase
 
     private function createGetResponseEventMock(Request $request)
     {
-        $event = $this->getMockBuilder('Symfony\Component\HttpKernel\Event\GetResponseEvent')
+        $event = $this->getMockBuilder(RequestEvent::class)
             ->disableOriginalConstructor()
             ->setMethods(array('getRequest'))
             ->getMock();
