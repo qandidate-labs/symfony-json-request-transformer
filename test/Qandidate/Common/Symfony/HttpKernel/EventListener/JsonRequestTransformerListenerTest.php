@@ -11,15 +11,15 @@
 
 namespace Qandidate\Common\Symfony\HttpKernel\EventListener;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 
-class JsonRequestTransformerListenerTest extends PHPUnit_Framework_TestCase
+class JsonRequestTransformerListenerTest extends TestCase
 {
     private $listener;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->listener = new JsonRequestTransformerListener();
     }
