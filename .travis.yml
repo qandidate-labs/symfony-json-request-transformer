@@ -26,3 +26,5 @@ before_script:
 
 script:
   - make test
+  - make qa
+  - make changelog
