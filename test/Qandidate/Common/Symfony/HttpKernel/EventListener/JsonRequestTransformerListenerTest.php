@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the qandidate/symfony-json-request-transformer package.
  *
@@ -30,9 +32,9 @@ class JsonRequestTransformerListenerTest extends TestCase
      */
     public function it_transforms_requests_with_a_json_content_type($contentType)
     {
-        $data    = array('foo' => 'bar');
+        $data = ['foo' => 'bar'];
         $request = $this->createRequest($contentType, json_encode($data));
-        $event   = $this->createGetResponseEventMock($request);
+        $event = $this->createGetResponseEventMock($request);
 
         $this->listener->onKernelRequest($event);
 
@@ -45,10 +47,10 @@ class JsonRequestTransformerListenerTest extends TestCase
 
     public function jsonContentTypes()
     {
-        return array(
-            array('application/json'),
-            array('application/x-json'),
-        );
+        return [
+            ['application/json'],
+            ['application/x-json'],
+        ];
     }
 
     /**
@@ -57,7 +59,7 @@ class JsonRequestTransformerListenerTest extends TestCase
     public function it_returns_a_bad_request_response_if_json_is_invalid()
     {
         $request = $this->createRequest('application/json', '{meh}');
-        $event   = $this->createGetResponseEventMock($request);
+        $event = $this->createGetResponseEventMock($request);
 
         $this->listener->onKernelRequest($event);
 
@@ -71,7 +73,7 @@ class JsonRequestTransformerListenerTest extends TestCase
     public function it_does_not_transform_other_content_types($contentType)
     {
         $request = $this->createRequest($contentType, 'some=body');
-        $event   = $this->createGetResponseEventMock($request);
+        $event = $this->createGetResponseEventMock($request);
 
         $this->listener->onKernelRequest($event);
 
@@ -85,7 +87,7 @@ class JsonRequestTransformerListenerTest extends TestCase
     public function it_does_not_replace_request_data_if_there_is_none()
     {
         $request = $this->createRequest('application/json', '');
-        $event   = $this->createGetResponseEventMock($request);
+        $event = $this->createGetResponseEventMock($request);
 
         $this->listener->onKernelRequest($event);
 
@@ -99,7 +101,7 @@ class JsonRequestTransformerListenerTest extends TestCase
     public function it_does_not_replace_request_data_if_content_is_json_null()
     {
         $request = $this->createRequest('application/json', 'null');
-        $event   = $this->createGetResponseEventMock($request);
+        $event = $this->createGetResponseEventMock($request);
 
         $this->listener->onKernelRequest($event);
 
@@ -109,16 +111,16 @@ class JsonRequestTransformerListenerTest extends TestCase
 
     public function notJsonContentTypes()
     {
-        return array(
-            array('application/x-www-form-urlencoded'),
-            array('text/html'),
-            array('text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'),
-        );
+        return [
+            ['application/x-www-form-urlencoded'],
+            ['text/html'],
+            ['text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'],
+        ];
     }
 
     private function createRequest($contentType, $body)
     {
-        $request = new Request(array(), array(), array(), array(), array(), array(), $body);
+        $request = new Request([], [], [], [], [], [], $body);
         $request->headers->set('CONTENT_TYPE', $contentType);
 
         return $request;
@@ -128,7 +130,7 @@ class JsonRequestTransformerListenerTest extends TestCase
     {
         $event = $this->getMockBuilder(RequestEvent::class)
             ->disableOriginalConstructor()
-            ->setMethods(array('getRequest'))
+            ->setMethods(['getRequest'])
             ->getMock();
 
         $event->expects($this->any())

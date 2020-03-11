@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the qandidate/symfony-json-request-transformer package.
  *
@@ -24,17 +26,17 @@ class JsonRequestTransformerListener
     {
         $request = $event->getRequest();
 
-        if (! $this->isJsonRequest($request)) {
+        if (!$this->isJsonRequest($request)) {
             return;
         }
-        
+
         $content = $request->getContent();
 
         if (empty($content)) {
             return;
         }
 
-        if (! $this->transformJsonBody($request)) {
+        if (!$this->transformJsonBody($request)) {
             $response = Response::create('Unable to parse request.', 400);
             $event->setResponse($response);
         }
@@ -47,13 +49,13 @@ class JsonRequestTransformerListener
 
     private function transformJsonBody(Request $request): bool
     {
-        $data = json_decode((string)$request->getContent(), true);
+        $data = json_decode((string) $request->getContent(), true);
 
-        if (json_last_error() !== JSON_ERROR_NONE) {
+        if (JSON_ERROR_NONE !== json_last_error()) {
             return false;
         }
 
-        if ($data === null) {
+        if (null === $data) {
             return true;
         }
 
