@@ -16,13 +16,13 @@
     "symfony/http-kernel": "^4.4|^5.0"
   },
   "autoload": {
-    "psr-0": {
-      "Qandidate\\Common\\Symfony\\HttpKernel\\EventListener": "src/"
+    "psr-4": {
+      "Qandidate\\Common\\Symfony\\HttpKernel\\EventListener\\": "src/"
     }
   },
   "autoload-dev": {
-    "psr-0": {
-      "Qandidate\\Common\\Symfony\\HttpKernel\\EventListener": "test/"
+    "psr-4": {
+      "Qandidate\\Common\\Symfony\\HttpKernel\\EventListener\\": "test/"
     }
   },
   "require-dev": {
