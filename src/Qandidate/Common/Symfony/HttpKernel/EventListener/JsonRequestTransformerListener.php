@@ -20,7 +20,7 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
  */
 class JsonRequestTransformerListener
 {
-    public function onKernelRequest(RequestEvent $event)
+    public function onKernelRequest(RequestEvent $event): void
     {
         $request = $event->getRequest();
 
@@ -40,14 +40,14 @@ class JsonRequestTransformerListener
         }
     }
 
-    private function isJsonRequest(Request $request)
+    private function isJsonRequest(Request $request): bool
     {
         return 'json' === $request->getContentType();
     }
 
-    private function transformJsonBody(Request $request)
+    private function transformJsonBody(Request $request): bool
     {
-        $data = json_decode($request->getContent(), true);
+        $data = json_decode((string)$request->getContent(), true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
             return false;
