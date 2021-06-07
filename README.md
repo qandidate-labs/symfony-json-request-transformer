@@ -3,7 +3,7 @@ symfony-json-request-transformer
 
 A Symfony event listener for decoding JSON encoded request content.
 
-[![Build Status](https://travis-ci.com/qandidate-labs/symfony-json-request-transformer.svg?branch=master)](https://travis-ci.com/qandidate-labs/symfony-json-request-transformer)
+![build status](https://github.com/qandidate-labs/symfony-json-request-transformer/actions/workflows/ci.yml/badge.svg)
 
 ## About
 
