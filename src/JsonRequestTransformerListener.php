@@ -51,12 +51,8 @@ class JsonRequestTransformerListener
     {
         $data = json_decode((string) $request->getContent(), true);
 
-        if (JSON_ERROR_NONE !== json_last_error()) {
+        if (JSON_ERROR_NONE !== json_last_error() || !is_array($data)) {
             return false;
-        }
-
-        if (null === $data) {
-            return true;
         }
 
         $request->request->replace($data);
