@@ -95,20 +95,6 @@ class JsonRequestTransformerListenerTest extends TestCase
         $this->assertNull($event->getResponse());
     }
 
-    /**
-     * @test
-     */
-    public function it_does_not_replace_request_data_if_content_is_json_null()
-    {
-        $request = $this->createRequest('application/json', 'null');
-        $event = $this->createGetResponseEventMock($request);
-
-        $this->listener->onKernelRequest($event);
-
-        $this->assertEquals($request, $event->getRequest());
-        $this->assertNull($event->getResponse());
-    }
-
     public function notJsonContentTypes()
     {
         return [
