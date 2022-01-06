@@ -1,5 +1,25 @@
 # Changelog
 
+## 2.1.0 (2022-01-06)
+
+* CHANGELOG.md by @othillo in https://github.com/qandidate-labs/symfony-json-request-transformer/pull/33
+* Use constant instead of magic number for response status code by @jdreesen in https://github.com/qandidate-labs/symfony-json-request-transformer/pull/35
+* Fix Symfony 5.1 deprecation by @jdreesen in https://github.com/qandidate-labs/symfony-json-request-transformer/pull/36
+* require patched versions by @othillo in https://github.com/qandidate-labs/symfony-json-request-transformer/pull/37
+* Upgrade to GitHub-native Dependabot by @dependabot-preview in https://github.com/qandidate-labs/symfony-json-request-transformer/pull/38
+* configured stale bot by @othillo in https://github.com/qandidate-labs/symfony-json-request-transformer/pull/42
+* GitHub actions by @othillo in https://github.com/qandidate-labs/symfony-json-request-transformer/pull/41
+* Update phpunit/phpunit requirement from ^8.0 to ^9.5 by @dependabot in https://github.com/qandidate-labs/symfony-json-request-transformer/pull/39
+* added GitHub actions build status badge by @othillo in https://github.com/qandidate-labs/symfony-json-request-transformer/pull/43
+* test on PHP 8.1 by @othillo in https://github.com/qandidate-labs/symfony-json-request-transformer/pull/44
+* phpstan/phpstan ^1.0 by @othillo in https://github.com/qandidate-labs/symfony-json-request-transformer/pull/47
+* Test against Symfony 6 by @wjzijderveld in https://github.com/qandidate-labs/symfony-json-request-transformer/pull/52
+
+## New Contributors
+* @jdreesen made their first contribution in https://github.com/qandidate-labs/symfony-json-request-transformer/pull/35
+
+**Full Changelog**: https://github.com/qandidate-labs/symfony-json-request-transformer/compare/2.0.0...2.1.0
+
 ## [2.0.0](https://github.com/qandidate-labs/symfony-json-request-transformer/tree/2.0.0) (2020-03-11)
 
 [Full Changelog](https://github.com/qandidate-labs/symfony-json-request-transformer/compare/1.3.0...2.0.0)
