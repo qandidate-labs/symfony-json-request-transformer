@@ -40,7 +40,7 @@ jobs:
       - name: "Install dependencies with Composer"
         uses: "ramsey/composer-install@v2"
         with:
-          dependency-version: "${{ matrix.dependencies }}"
+          dependency-versions: "${{ matrix.dependencies }}"
       - name: "Run tests"
         run: "make test"
 
