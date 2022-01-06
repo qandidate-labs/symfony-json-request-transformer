@@ -21,6 +21,10 @@ jobs:
           - "7.4"
           - "8.0"
           - "8.1"
+        dependencies:
+          - "lowest"
+          - "highest"
+
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v2"
@@ -34,7 +38,9 @@ jobs:
       - name: "Validate composer.json and composer.lock"
         run: "composer validate --strict --no-interaction --ansi"
       - name: "Install dependencies with Composer"
-        uses: "ramsey/composer-install@v1"
+        uses: "ramsey/composer-install@v2"
+        with:
+          dependency-version: "${{ matrix.dependencies }}"
       - name: "Run tests"
         run: "make test"
 
