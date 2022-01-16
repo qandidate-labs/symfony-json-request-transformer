@@ -104,6 +104,28 @@ class JsonRequestTransformerListenerTest extends TestCase
         ];
     }
 
+    /**
+     * @test
+     * @dataProvider provideValidNonStructuredJson
+     */
+    public function it_also_accepts_valid_json_if_its_not_structured_content($body): void
+    {
+        $request = $this->createRequest('application/json', $body);
+        $event = $this->createGetResponseEventMock($request);
+
+        $this->listener->onKernelRequest($event);
+        $this->assertNull($event->getResponse());
+    }
+
+    public static function provideValidNonStructuredJson()
+    {
+        return [
+            'boolean true' => ['true'],
+            'boolean false' => ['false'],
+            'null' => ['null'],
+        ];
+    }
+
     private function createRequest($contentType, $body)
     {
         $request = new Request([], [], [], [], [], [], $body);
