@@ -51,7 +51,15 @@ class JsonRequestTransformerListener
     {
         $data = json_decode((string) $request->getContent(), true);
 
-        if (JSON_ERROR_NONE !== json_last_error() || !is_array($data)) {
+        if (JSON_ERROR_NONE !== json_last_error()) {
+            return false;
+        }
+
+        if (is_null($data) || is_bool($data)) {
+            return true;
+        }
+
+        if (!is_array($data)) {
             return false;
         }
 
