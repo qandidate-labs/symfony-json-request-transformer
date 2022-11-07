@@ -28,6 +28,7 @@ class JsonRequestTransformerListenerTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider jsonContentTypes
      */
     public function it_transforms_requests_with_a_json_content_type($contentType)
@@ -68,6 +69,7 @@ class JsonRequestTransformerListenerTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider notJsonContentTypes
      */
     public function it_does_not_transform_other_content_types($contentType)
@@ -106,6 +108,7 @@ class JsonRequestTransformerListenerTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider provideValidNonStructuredJson
      */
     public function it_also_accepts_valid_json_if_its_not_structured_content($body): void
