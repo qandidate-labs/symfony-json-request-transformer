@@ -13,7 +13,7 @@
     }
   ],
   "require": {
-    "symfony/http-kernel": "^4.4.48||^5.4.15||^6.0.15"
+    "symfony/http-kernel": "^4.4.49||^5.4.16||^6.0.16"
   },
   "autoload": {
     "psr-4": {
