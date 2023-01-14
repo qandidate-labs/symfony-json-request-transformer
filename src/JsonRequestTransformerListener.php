@@ -44,7 +44,8 @@ class JsonRequestTransformerListener
 
     private function isJsonRequest(Request $request): bool
     {
-        return 'json' === $request->getContentType();
+        // Request::getContentType() is deprecated since Symfony 6.2
+        return 'json' === (method_exists($request, 'getContentTypeFormat') ? $request->getContentTypeFormat() : $request->getContentType());
     }
 
     private function transformJsonBody(Request $request): bool
