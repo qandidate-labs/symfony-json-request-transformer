@@ -16,6 +16,7 @@ namespace Qandidate\Common\Symfony\HttpKernel\EventListener;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\HttpKernel\Kernel;
 
 class JsonRequestTransformerListenerTest extends TestCase
 {
@@ -43,6 +44,26 @@ class JsonRequestTransformerListenerTest extends TestCase
             $data,
             $event->getRequest()->request->all()
         );
+        $this->assertNull($event->getResponse());
+    }
+
+    /**
+     * @test
+     */
+    public function it_results_in_the_output_as_symfony_payload(): void
+    {
+        if (version_compare(Kernel::VERSION, '6.3.0') < 0) {
+            $this->markTestSkipped('Symfony >= 6.3 specific test');
+        }
+
+        $data = ['foo' => 'bar'];
+        $request = $this->createRequest('application/json', json_encode($data));
+        $event = $this->createGetResponseEventMock($request);
+
+        $this->listener->onKernelRequest($event);
+
+        $this->assertEquals($event->getRequest()->request->get('foo'), $event->getRequest()->getPayload()->get('foo'));
+        $this->assertEquals($event->getRequest()->request->all(), $event->getRequest()->toArray());
         $this->assertNull($event->getResponse());
     }
 
