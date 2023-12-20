@@ -1,6 +1,11 @@
 symfony-json-request-transformer
 ================================
 
+> 🚨 This repository is archived as it has served its purpose.
+> Symfony has built-in support for this: https://symfony.com/doc/current/components/http_foundation.html#accessing-request-data
+>
+> ```$request->getPayload()->get('foo');```
+
 A Symfony event listener for decoding JSON encoded request content.
 
 ![build status](https://github.com/qandidate-labs/symfony-json-request-transformer/actions/workflows/ci.yml/badge.svg)
